@@ -263,11 +263,11 @@
         </div>
         <div class="form-group">
           <label>Tip</label>
-          <input type="number" id="f-tip" placeholder="0.00" step="0.01" min="0" />
+          <input type="number" id="f-tip" placeholder="0.00" step="0.01" min="0" oninput="calcEmpAmt()" />
         </div>
         <div class="form-group">
           <label>Total Due Employee</label>
-          <input type="number" id="f-total" placeholder="0.00" step="0.01" min="0" />
+          <input type="number" id="f-total" placeholder="Auto-calculated" step="0.01" min="0" readonly />
         </div>
       </div>
       <div class="form-actions">
@@ -408,10 +408,12 @@
   function calcEmpAmt() {
     const cc      = parseFloat(document.getElementById('f-cc').value)      || 0;
     const swapout = parseFloat(document.getElementById('f-swapout').value) || 0;
+    const tip     = parseFloat(document.getElementById('f-tip').value)     || 0;
     const pct     = parseFloat(document.getElementById('f-pct').value)     || 0;
-    if (pct) {
-      document.getElementById('f-empamt').value = ((cc + swapout) * pct / 100).toFixed(2);
-    }
+    const empAmt  = pct ? parseFloat((cc * pct / 100).toFixed(2)) : 0;
+    if (pct) document.getElementById('f-empamt').value = empAmt.toFixed(2);
+    const total = empAmt + tip + swapout;
+    document.getElementById('f-total').value = total.toFixed(2);
   }
 
   // --- MANUAL ENTRY ---
