@@ -15,18 +15,31 @@
       padding: 20px 32px;
       display: flex;
       align-items: center;
-      gap: 16px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
     }
+    .header-left { display: flex; align-items: center; gap: 16px; }
     header h1 { font-size: 1.6rem; color: #e8000d; letter-spacing: 2px; text-transform: uppercase; }
     header span { color: #999; font-size: 0.9rem; }
 
-    .container { padding: 32px; }
+    .period-badge {
+      background: #1f0a0a;
+      border: 1px solid #8b0000;
+      border-radius: 6px;
+      padding: 6px 16px;
+      font-size: 0.82rem;
+      color: #e8000d;
+    }
+    .period-badge span { color: #fff; }
 
-    .tabs { display: flex; gap: 0; margin-bottom: 28px; border-bottom: 2px solid #2a0a0a; }
+    .container { padding: 28px 32px; }
+
+    .tabs { display: flex; gap: 0; margin-bottom: 24px; border-bottom: 2px solid #2a0a0a; }
     .tab {
       padding: 10px 24px;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: #666;
@@ -34,9 +47,69 @@
       margin-bottom: -2px;
     }
     .tab.active { color: #e8000d; border-bottom-color: #e8000d; }
-
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
+
+    .panel-box {
+      background: #1a0a0a;
+      border: 1px solid #3a0a0a;
+      border-radius: 10px;
+      padding: 22px;
+      margin-bottom: 22px;
+    }
+
+    .section-title {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #8b0000;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #2a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 0.72rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
+    .form-group input, .form-group select {
+      background: #0d0d0d;
+      border: 1px solid #3a0a0a;
+      color: #f0f0f0;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+    }
+    .form-group input:focus, .form-group select:focus { outline: none; border-color: #8b0000; }
+    .form-group input[readonly] { color: #4caf50; border-color: #1a3a1a; }
+
+    .form-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+    .btn { padding: 9px 20px; border-radius: 6px; font-size: 0.88rem; cursor: pointer; border: none; font-weight: bold; }
+    .btn-primary { background: #8b0000; color: #fff; }
+    .btn-primary:hover { background: #e8000d; }
+    .btn-secondary { background: #222; color: #aaa; border: 1px solid #333; }
+    .btn-secondary:hover { background: #333; color: #fff; }
+    .btn-close { background: #0a2a0a; color: #4caf50; border: 1px solid #1a5a1a; }
+    .btn-close:hover { background: #1a5a1a; }
+    .btn-danger-sm { background: transparent; color: #e8000d; border: 1px solid #8b0000; padding: 3px 9px; font-size: 0.72rem; border-radius: 4px; cursor: pointer; }
+    .btn-danger-sm:hover { background: #8b0000; color: #fff; }
+
+    .saved-notice { color: #4caf50; font-size: 0.8rem; opacity: 0; transition: opacity 0.3s; }
+    .saved-notice.show { opacity: 1; }
 
     .drop-zone {
       border: 2px dashed #8b0000;
@@ -52,136 +125,59 @@
     .drop-zone .icon { font-size: 2.5rem; }
     #file-input { display: none; }
 
-    .entry-form {
-      background: #1a0a0a;
-      border: 1px solid #3a0a0a;
-      border-radius: 10px;
-      padding: 24px;
-      margin-bottom: 24px;
-    }
-    .form-grid {
+    .summary-cards {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 14px;
-      margin-bottom: 16px;
+      margin-bottom: 28px;
     }
-    .form-group { display: flex; flex-direction: column; gap: 5px; }
-    .form-group label { font-size: 0.75rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
-    .form-group input, .form-group select {
-      background: #0d0d0d;
-      border: 1px solid #3a0a0a;
-      color: #f0f0f0;
-      padding: 8px 10px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-    }
-    .form-group input:focus, .form-group select:focus {
-      outline: none;
-      border-color: #8b0000;
-    }
-    .form-actions { display: flex; gap: 10px; }
-    .btn {
-      padding: 10px 22px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      border: none;
-      font-weight: bold;
-    }
-    .btn-primary { background: #8b0000; color: #fff; }
-    .btn-primary:hover { background: #e8000d; }
-    .btn-secondary { background: #222; color: #aaa; border: 1px solid #333; }
-    .btn-secondary:hover { background: #333; color: #fff; }
-    .btn-danger { background: transparent; color: #e8000d; border: 1px solid #8b0000; padding: 4px 10px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; }
-    .btn-danger:hover { background: #8b0000; color: #fff; }
+    .card { background: #1a0a0a; border: 1px solid #3a0a0a; border-radius: 8px; padding: 18px; }
+    .card .name { font-size: 0.75rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
+    .card .amount { font-size: 1.5rem; font-weight: bold; color: #e8000d; margin-top: 4px; }
+    .card .sub { font-size: 0.75rem; color: #666; margin-top: 4px; }
 
-    .saved-notice {
-      color: #4caf50;
-      font-size: 0.8rem;
-      margin-left: 12px;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .saved-notice.show { opacity: 1; }
-
-    .summary-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-    .card { background: #1a0a0a; border: 1px solid #3a0a0a; border-radius: 8px; padding: 20px; }
-    .card .name { font-size: 0.85rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
-    .card .amount { font-size: 1.6rem; font-weight: bold; color: #e8000d; margin-top: 4px; }
-    .card .sub { font-size: 0.8rem; color: #666; margin-top: 4px; }
-
-    .section-title {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #8b0000;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #2a0a0a;
-    }
-
-    .filters { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
+    .filters { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
     .filters input, .filters select {
-      background: #1a0a0a;
-      border: 1px solid #3a0a0a;
-      color: #f0f0f0;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 0.9rem;
+      background: #1a0a0a; border: 1px solid #3a0a0a;
+      color: #f0f0f0; padding: 7px 12px; border-radius: 6px; font-size: 0.88rem;
     }
-    .filters label { color: #aaa; font-size: 0.85rem; }
+    .filters label { color: #aaa; font-size: 0.82rem; }
 
-    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
     thead th {
-      background: #1a0a0a;
-      padding: 11px 8px;
-      text-align: left;
-      color: #e8000d;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-bottom: 2px solid #8b0000;
-      white-space: nowrap;
+      background: #1a0a0a; padding: 10px 7px; text-align: left;
+      color: #e8000d; font-size: 0.7rem; text-transform: uppercase;
+      letter-spacing: 1px; border-bottom: 2px solid #8b0000; white-space: nowrap;
     }
     tbody tr { border-bottom: 1px solid #1f1f1f; }
-    tbody tr:hover { background: #1a0a0a; }
-    tbody td { padding: 9px 8px; color: #ddd; }
+    tbody tr:hover { background: #150505; }
+    tbody td { padding: 8px 7px; color: #ddd; }
     tbody td.amount { color: #4caf50; font-weight: bold; }
     tbody td.name { color: #fff; font-weight: 600; }
+    .tfoot-row td { background: #1a0a0a; border-top: 2px solid #8b0000; padding: 10px 7px; font-weight: bold; color: #e8000d; }
 
-    .tfoot-row td {
-      background: #1a0a0a;
-      border-top: 2px solid #8b0000;
-      padding: 11px 8px;
-      font-weight: bold;
-      color: #e8000d;
-    }
-
-    .empty { text-align: center; padding: 60px; color: #444; }
+    .empty { text-align: center; padding: 50px; color: #444; }
     .table-wrap { overflow-x: auto; }
-    .period-label { color: #aaa; font-size: 0.85rem; margin-bottom: 12px; }
 
-    .clear-btn {
-      float: right;
-      margin-top: -4px;
-      padding: 4px 14px;
-      background: transparent;
-      border: 1px solid #3a0a0a;
-      color: #666;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 0.75rem;
+    .archive-list { display: flex; flex-direction: column; gap: 10px; }
+    .archive-item {
+      background: #0d0d0d;
+      border: 1px solid #2a0a0a;
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
     }
-    .clear-btn:hover { border-color: #8b0000; color: #e8000d; }
+    .archive-item .period { font-weight: bold; color: #fff; font-size: 0.9rem; }
+    .archive-item .meta { color: #666; font-size: 0.8rem; margin-top: 2px; }
+    .archive-actions { display: flex; gap: 8px; }
 
     @media (max-width: 600px) {
       .container { padding: 16px; }
-      header { padding: 16px; }
+      header { padding: 14px; }
       header h1 { font-size: 1.2rem; }
     }
   </style>
@@ -189,8 +185,11 @@
 <body>
 
 <header>
-  <h1>&#127825; Black Rose</h1>
-  <span>Payroll Dashboard</span>
+  <div class="header-left">
+    <h1>&#127825; Black Rose</h1>
+    <span>Payroll Dashboard</span>
+  </div>
+  <div class="period-badge" id="header-period">No pay period set</div>
 </header>
 
 <div class="container">
@@ -198,12 +197,30 @@
   <div class="tabs">
     <div class="tab active" onclick="switchTab('manual')">Enter Data</div>
     <div class="tab" onclick="switchTab('upload')">Upload Excel</div>
+    <div class="tab" onclick="switchTab('archive')">Closed Periods</div>
   </div>
 
   <!-- MANUAL ENTRY TAB -->
   <div class="tab-panel active" id="tab-manual">
-    <div class="entry-form">
-      <p class="section-title" style="margin-bottom:18px;">Add New Entry</p>
+
+    <!-- Pay Period -->
+    <div class="panel-box">
+      <div class="section-title">Pay Period</div>
+      <div class="form-grid-2">
+        <div class="form-group">
+          <label>Period Start Date</label>
+          <input type="date" id="period-start" onchange="savePeriod()" />
+        </div>
+        <div class="form-group">
+          <label>Period End Date</label>
+          <input type="date" id="period-end" onchange="savePeriod()" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Entry Form -->
+    <div class="panel-box">
+      <div class="section-title">Add New Entry</div>
       <div class="form-grid">
         <div class="form-group">
           <label>Employee</label>
@@ -233,20 +250,20 @@
           <input type="number" id="f-cc" placeholder="0.00" step="0.01" min="0" oninput="calcEmpAmt()" />
         </div>
         <div class="form-group">
-          <label>% of Card Charge</label>
+          <label>Swapout</label>
+          <input type="number" id="f-swapout" placeholder="0.00" step="0.01" min="0" oninput="calcEmpAmt()" />
+        </div>
+        <div class="form-group">
+          <label>% of (Card + Swapout)</label>
           <input type="number" id="f-pct" placeholder="e.g. 60" step="1" min="0" max="100" oninput="calcEmpAmt()" />
         </div>
         <div class="form-group">
           <label>Emp Amt</label>
-          <input type="number" id="f-empamt" placeholder="Auto-calculated" step="0.01" min="0" />
+          <input type="number" id="f-empamt" placeholder="Auto-calculated" step="0.01" min="0" readonly />
         </div>
         <div class="form-group">
           <label>Tip</label>
           <input type="number" id="f-tip" placeholder="0.00" step="0.01" min="0" />
-        </div>
-        <div class="form-group">
-          <label>Swapout</label>
-          <input type="number" id="f-swapout" placeholder="0.00" step="0.01" min="0" />
         </div>
         <div class="form-group">
           <label>Total Due Employee</label>
@@ -258,6 +275,15 @@
         <button class="btn btn-secondary" onclick="clearForm()">Clear</button>
         <span class="saved-notice" id="saved-notice">Saved!</span>
       </div>
+    </div>
+
+    <!-- Close Pay Period -->
+    <div class="panel-box">
+      <div class="section-title">Close Pay Period</div>
+      <p style="color:#aaa; font-size:0.85rem; margin-bottom:14px;">
+        Closing the pay period exports one Excel file per employee and archives the data. Current entries will be cleared for the next period.
+      </p>
+      <button class="btn btn-close" onclick="closePayPeriod()">&#10003; Close & Export Pay Period</button>
     </div>
   </div>
 
@@ -271,21 +297,28 @@
     </div>
   </div>
 
-  <!-- SUMMARY + TABLE (shared) -->
+  <!-- ARCHIVE TAB -->
+  <div class="tab-panel" id="tab-archive">
+    <div class="panel-box">
+      <div class="section-title">Closed Pay Periods</div>
+      <div class="archive-list" id="archive-list">
+        <p style="color:#444; text-align:center; padding:24px;">No closed periods yet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY + TABLE -->
   <div id="summary-section" style="display:none">
-    <p class="section-title">
+    <div class="section-title" style="margin-bottom:16px;">
       Pay Period Summary
-      <button class="clear-btn" onclick="clearAll()">Clear all data</button>
-    </p>
-    <p class="period-label" id="period-label"></p>
+      <button class="btn-danger-sm" onclick="clearAll()">Clear all entries</button>
+    </div>
     <div class="summary-cards" id="summary-cards"></div>
 
-    <p class="section-title">Payroll Detail</p>
+    <div class="section-title" style="margin-bottom:16px;">Payroll Detail</div>
     <div class="filters">
       <label>Filter by employee:
-        <select id="filter-employee">
-          <option value="">All employees</option>
-        </select>
+        <select id="filter-employee"><option value="">All employees</option></select>
       </label>
       <label>Search:
         <input type="text" id="filter-search" placeholder="Customer name, date…" />
@@ -301,9 +334,10 @@
             <th>Date</th>
             <th>Cash</th>
             <th>Tot Card Charge</th>
+            <th>Swapout</th>
+            <th>%</th>
             <th>Emp Amt</th>
             <th>Tip</th>
-            <th>Swapout</th>
             <th>Total Due</th>
             <th></th>
           </tr>
@@ -321,26 +355,66 @@
 </div>
 
 <script>
-  const STORAGE_KEY = 'blackrose_payroll';
-  let allRows = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+  const STORAGE_KEY  = 'blackrose_payroll';
+  const PERIOD_KEY   = 'blackrose_period';
+  const ARCHIVE_KEY  = 'blackrose_archive';
 
+  let allRows    = JSON.parse(localStorage.getItem(STORAGE_KEY)  || '[]');
+  let periodInfo = JSON.parse(localStorage.getItem(PERIOD_KEY)   || '{}');
+  let archive    = JSON.parse(localStorage.getItem(ARCHIVE_KEY)  || '[]');
+
+  // Init
+  if (periodInfo.start) document.getElementById('period-start').value = periodInfo.start;
+  if (periodInfo.end)   document.getElementById('period-end').value   = periodInfo.end;
+  updatePeriodBadge();
+  renderArchive();
   if (allRows.length) render();
 
+  // --- TABS ---
   function switchTab(tab) {
-    document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', (i === 0) === (tab === 'manual')));
-    document.getElementById('tab-manual').classList.toggle('active', tab === 'manual');
-    document.getElementById('tab-upload').classList.toggle('active', tab === 'upload');
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    const idx = ['manual','upload','archive'].indexOf(tab);
+    document.querySelectorAll('.tab')[idx].classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
   }
 
-  // --- MANUAL ENTRY ---
-  function calcEmpAmt() {
-    const cc  = parseFloat(document.getElementById('f-cc').value)  || 0;
-    const pct = parseFloat(document.getElementById('f-pct').value) || 0;
-    if (cc && pct) {
-      document.getElementById('f-empamt').value = (cc * pct / 100).toFixed(2);
+  // --- PAY PERIOD ---
+  function savePeriod() {
+    periodInfo.start = document.getElementById('period-start').value;
+    periodInfo.end   = document.getElementById('period-end').value;
+    localStorage.setItem(PERIOD_KEY, JSON.stringify(periodInfo));
+    updatePeriodBadge();
+  }
+
+  function updatePeriodBadge() {
+    const el = document.getElementById('header-period');
+    if (periodInfo.start && periodInfo.end) {
+      el.innerHTML = 'Pay Period: <span>' + fmtDate(periodInfo.start) + ' – ' + fmtDate(periodInfo.end) + '</span>';
+    } else if (periodInfo.start) {
+      el.innerHTML = 'Period starts: <span>' + fmtDate(periodInfo.start) + '</span>';
+    } else {
+      el.textContent = 'No pay period set';
     }
   }
 
+  function fmtDate(d) {
+    if (!d) return '';
+    const [y, m, day] = d.split('-');
+    return m + '/' + day + '/' + y;
+  }
+
+  // --- AUTO CALC ---
+  function calcEmpAmt() {
+    const cc      = parseFloat(document.getElementById('f-cc').value)      || 0;
+    const swapout = parseFloat(document.getElementById('f-swapout').value) || 0;
+    const pct     = parseFloat(document.getElementById('f-pct').value)     || 0;
+    if (pct) {
+      document.getElementById('f-empamt').value = ((cc + swapout) * pct / 100).toFixed(2);
+    }
+  }
+
+  // --- MANUAL ENTRY ---
   function addEntry() {
     const employee = document.getElementById('f-employee').value.trim();
     const customer = document.getElementById('f-customer').value.trim();
@@ -350,14 +424,15 @@
     allRows.push({
       employee,
       customer,
-      date: date ? new Date(date + 'T12:00:00').toLocaleDateString() : '',
-      cash:     parseFloat(document.getElementById('f-cash').value)   || 0,
-      ccCharge: parseFloat(document.getElementById('f-cc').value)     || 0,
-      empAmt:   parseFloat(document.getElementById('f-empamt').value) || 0,
-      tip:      parseFloat(document.getElementById('f-tip').value)    || 0,
-      swapout:  parseFloat(document.getElementById('f-swapout').value)|| 0,
-      total:    parseFloat(document.getElementById('f-total').value)  || 0,
-      source: 'manual',
+      date:     date ? fmtDate(date) : '',
+      cash:     parseFloat(document.getElementById('f-cash').value)    || 0,
+      ccCharge: parseFloat(document.getElementById('f-cc').value)      || 0,
+      swapout:  parseFloat(document.getElementById('f-swapout').value) || 0,
+      pct:      parseFloat(document.getElementById('f-pct').value)     || 0,
+      empAmt:   parseFloat(document.getElementById('f-empamt').value)  || 0,
+      tip:      parseFloat(document.getElementById('f-tip').value)     || 0,
+      total:    parseFloat(document.getElementById('f-total').value)   || 0,
+      source:   'manual',
     });
 
     save();
@@ -369,7 +444,7 @@
   }
 
   function clearForm() {
-    ['f-employee','f-customer','f-date','f-cash','f-cc','f-empamt','f-tip','f-swapout','f-total']
+    ['f-employee','f-customer','f-date','f-cash','f-cc','f-swapout','f-pct','f-empamt','f-tip','f-total']
       .forEach(id => { document.getElementById(id).value = ''; });
   }
 
@@ -381,20 +456,120 @@
   }
 
   function clearAll() {
-    if (!confirm('Clear ALL payroll data? This cannot be undone.')) return;
+    if (!confirm('Clear ALL current entries?')) return;
     allRows = [];
     save();
     render();
   }
 
-  function save() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(allRows));
+  function save() { localStorage.setItem(STORAGE_KEY, JSON.stringify(allRows)); }
+
+  // --- CLOSE PAY PERIOD ---
+  function closePayPeriod() {
+    if (!allRows.length) { alert('No entries to close out.'); return; }
+    if (!periodInfo.start || !periodInfo.end) {
+      if (!confirm('No pay period dates are set. Close anyway?')) return;
+    }
+    if (!confirm('This will export Excel files for each employee and archive this period. Continue?')) return;
+
+    // Export Excel per employee
+    const employees = [...new Set(allRows.map(r => r.employee))];
+    employees.forEach(emp => {
+      const rows = allRows.filter(r => r.employee === emp);
+      exportEmployeeExcel(emp, rows);
+    });
+
+    // Archive
+    archive.unshift({
+      start:    periodInfo.start,
+      end:      periodInfo.end,
+      closedAt: new Date().toISOString(),
+      rows:     [...allRows],
+    });
+    localStorage.setItem(ARCHIVE_KEY, JSON.stringify(archive));
+
+    // Clear current
+    allRows = [];
+    save();
+    render();
+    renderArchive();
+    alert('Pay period closed! Excel files are downloading.');
+  }
+
+  function exportEmployeeExcel(empName, rows) {
+    const wb = XLSX.utils.book_new();
+    const wsData = [];
+
+    // Row 1: employee name
+    wsData.push([empName]);
+    // Row 2: headers
+    wsData.push(['Customer', 'Date', '', 'cash', 'Tot card charge', 'Emp amt', 'Tip', 'swapout', 'Total due Employee']);
+    // Data rows
+    rows.forEach(r => {
+      wsData.push([r.customer, r.date, '', r.cash, r.ccCharge, r.empAmt, r.tip, r.swapout, r.total]);
+    });
+    // Blank row
+    wsData.push([]);
+    // Total row
+    const totalDue = rows.reduce((s, r) => s + r.total, 0);
+    wsData.push(['', 'Total Due Employee Pay', '', '', '', '', '', '', totalDue]);
+
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+
+    // Column widths
+    ws['!cols'] = [20,10,4,8,14,10,8,10,18].map(w => ({ wch: w }));
+
+    XLSX.utils.book_append_sheet(wb, ws, 'Payroll');
+    const period = (periodInfo.start && periodInfo.end)
+      ? '_' + periodInfo.start + '_to_' + periodInfo.end
+      : '';
+    XLSX.writeFile(wb, empName + '_payroll' + period + '.xlsx');
+  }
+
+  // --- ARCHIVE ---
+  function renderArchive() {
+    const el = document.getElementById('archive-list');
+    if (!archive.length) {
+      el.innerHTML = '<p style="color:#444; text-align:center; padding:24px;">No closed periods yet.</p>';
+      return;
+    }
+    el.innerHTML = archive.map((p, i) => {
+      const label = (p.start && p.end) ? fmtDate(p.start) + ' – ' + fmtDate(p.end) : 'Period ' + (i + 1);
+      const empSet = [...new Set(p.rows.map(r => r.employee))].join(', ');
+      const total  = p.rows.reduce((s, r) => s + r.total, 0);
+      const closed = new Date(p.closedAt).toLocaleDateString();
+      return `<div class="archive-item">
+        <div>
+          <div class="period">${label}</div>
+          <div class="meta">${p.rows.length} entries &nbsp;·&nbsp; ${empSet} &nbsp;·&nbsp; Total: ${fmt(total)} &nbsp;·&nbsp; Closed ${closed}</div>
+        </div>
+        <div class="archive-actions">
+          <button class="btn btn-secondary" style="font-size:0.78rem; padding:6px 14px;" onclick="reExport(${i})">Re-export Excel</button>
+          <button class="btn-danger-sm" onclick="deleteArchive(${i})">Delete</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  function reExport(i) {
+    const p = archive[i];
+    const employees = [...new Set(p.rows.map(r => r.employee))];
+    const prev = periodInfo;
+    periodInfo = { start: p.start, end: p.end };
+    employees.forEach(emp => exportEmployeeExcel(emp, p.rows.filter(r => r.employee === emp)));
+    periodInfo = prev;
+  }
+
+  function deleteArchive(i) {
+    if (!confirm('Remove this archived period?')) return;
+    archive.splice(i, 1);
+    localStorage.setItem(ARCHIVE_KEY, JSON.stringify(archive));
+    renderArchive();
   }
 
   // --- EXCEL UPLOAD ---
   const dropZone = document.getElementById('drop-zone');
   const fileInput = document.getElementById('file-input');
-
   dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
   dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
   dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag-over'); handleFiles(e.dataTransfer.files); });
@@ -418,10 +593,8 @@
           const sheet = wb.Sheets[sheetName];
           const raw = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
           if (raw.length < 2) return;
-
           const employeeName = String(raw[0][0] || '').trim();
           const headers = raw[1].map(h => String(h).trim().toLowerCase());
-
           function col(patterns) {
             for (const p of patterns) {
               const i = headers.findIndex(h => h.includes(p.toLowerCase()));
@@ -429,12 +602,11 @@
             }
             return -1;
           }
-
-          const iCustomer = col(['customer', 'client']);
+          const iCustomer = col(['customer','client']);
           const iDate     = col(['date']);
           const iCash     = col(['cash']);
-          const iCC       = col(['card', 'cc', 'charge']);
-          const iEmpAmt   = col(['emp amt', 'emp', 'employee amt', 'employee amount']);
+          const iCC       = col(['card','cc','charge']);
+          const iEmpAmt   = col(['emp amt','emp','employee amt','employee amount']);
           const iTip      = col(['tip']);
           const iSwapout  = col(['swap']);
           const iTotal    = col(['total']);
@@ -444,19 +616,20 @@
             if (r.every(c => c === '')) continue;
             const rowText = r.map(c => String(c).toLowerCase()).join(' ');
             if (rowText.includes('total due') || rowText.includes('total pay')) continue;
-            const numericSum = [iCC, iEmpAmt, iTip, iSwapout, iTotal].filter(x => x >= 0).reduce((s, idx) => s + toNum(r[idx]), 0);
+            const numericSum = [iCC,iEmpAmt,iTip,iSwapout,iTotal].filter(x=>x>=0).reduce((s,idx)=>s+toNum(r[idx]),0);
             if (numericSum === 0) continue;
             rows.push({
               employee: employeeName,
               customer: String(iCustomer >= 0 ? r[iCustomer] : ''),
-              date: formatDate(iDate >= 0 ? r[iDate] : ''),
+              date:     formatDate(iDate >= 0 ? r[iDate] : ''),
               cash:     toNum(iCash    >= 0 ? r[iCash]    : 0),
               ccCharge: toNum(iCC      >= 0 ? r[iCC]      : 0),
+              swapout:  toNum(iSwapout >= 0 ? r[iSwapout] : 0),
+              pct:      0,
               empAmt:   toNum(iEmpAmt  >= 0 ? r[iEmpAmt]  : 0),
               tip:      toNum(iTip     >= 0 ? r[iTip]     : 0),
-              swapout:  toNum(iSwapout >= 0 ? r[iSwapout] : 0),
               total:    toNum(iTotal   >= 0 ? r[iTotal]   : 0),
-              source: 'excel',
+              source:   'excel',
             });
           }
         });
@@ -471,23 +644,20 @@
     const n = parseFloat(String(v).replace(/[^0-9.\-]/g, ''));
     return isNaN(n) ? 0 : n;
   }
-
   function formatDate(d) {
     if (!d) return '';
     if (d instanceof Date) return d.toLocaleDateString();
     return String(d);
   }
-
   function fmt(n) {
-    return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return '$' + Number(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
   // --- RENDER ---
   function render() {
     const empFilter = document.getElementById('filter-employee').value;
-    const search = document.getElementById('filter-search').value.toLowerCase();
-
-    const filtered = allRows.map((r, i) => ({ ...r, _idx: i })).filter(r => {
+    const search    = document.getElementById('filter-search').value.toLowerCase();
+    const filtered  = allRows.map((r,i) => ({...r, _idx: i})).filter(r => {
       if (empFilter && r.employee !== empFilter) return false;
       if (search && !Object.values(r).join(' ').toLowerCase().includes(search)) return false;
       return true;
@@ -500,8 +670,8 @@
       empMap[r.employee].rows++;
     });
 
+    const grandTotal = Object.values(empMap).reduce((s,v) => s + v.total, 0);
     const cards = document.getElementById('summary-cards');
-    const grandTotal = Object.values(empMap).reduce((s, v) => s + v.total, 0);
     cards.innerHTML = `<div class="card"><div class="name">Grand Total</div><div class="amount">${fmt(grandTotal)}</div><div class="sub">${allRows.length} entries</div></div>`;
     Object.entries(empMap).sort((a,b) => b[1].total - a[1].total).forEach(([name, data]) => {
       cards.innerHTML += `<div class="card"><div class="name">${name}</div><div class="amount">${fmt(data.total)}</div><div class="sub">${data.rows} entries</div></div>`;
@@ -523,37 +693,36 @@
         <td>${r.date}</td>
         <td>${fmt(r.cash)}</td>
         <td>${fmt(r.ccCharge)}</td>
+        <td>${fmt(r.swapout)}</td>
+        <td>${r.pct ? r.pct + '%' : ''}</td>
         <td>${fmt(r.empAmt)}</td>
         <td>${fmt(r.tip)}</td>
-        <td>${fmt(r.swapout)}</td>
         <td class="amount">${fmt(r.total)}</td>
-        <td><button class="btn-danger" onclick="deleteRow(${r._idx})">Delete</button></td>
+        <td><button class="btn-danger-sm" onclick="deleteRow(${r._idx})">Delete</button></td>
       </tr>`;
     });
 
-    const totals = filtered.reduce((acc, r) => {
-      acc.cash += r.cash; acc.ccCharge += r.ccCharge; acc.empAmt += r.empAmt;
-      acc.tip += r.tip; acc.swapout += r.swapout; acc.total += r.total;
+    const totals = filtered.reduce((acc,r) => {
+      acc.cash+=r.cash; acc.ccCharge+=r.ccCharge; acc.swapout+=r.swapout;
+      acc.empAmt+=r.empAmt; acc.tip+=r.tip; acc.total+=r.total;
       return acc;
-    }, { cash: 0, ccCharge: 0, empAmt: 0, tip: 0, swapout: 0, total: 0 });
+    }, {cash:0,ccCharge:0,swapout:0,empAmt:0,tip:0,total:0});
 
     document.getElementById('table-foot').innerHTML = `<tr class="tfoot-row">
       <td colspan="3">Totals (${filtered.length} entries)</td>
       <td>${fmt(totals.cash)}</td>
       <td>${fmt(totals.ccCharge)}</td>
+      <td>${fmt(totals.swapout)}</td>
+      <td></td>
       <td>${fmt(totals.empAmt)}</td>
       <td>${fmt(totals.tip)}</td>
-      <td>${fmt(totals.swapout)}</td>
       <td>${fmt(totals.total)}</td>
       <td></td>
     </tr>`;
 
-    const dates = allRows.map(r => r.date).filter(Boolean);
-    document.getElementById('period-label').textContent = dates.length ? `Period: ${dates[0]} – ${dates[dates.length - 1]}` : '';
-
     const hasData = allRows.length > 0;
     document.getElementById('summary-section').style.display = hasData ? 'block' : 'none';
-    document.getElementById('empty-state').style.display = hasData ? 'none' : 'block';
+    document.getElementById('empty-state').style.display    = hasData ? 'none'  : 'block';
   }
 
   document.getElementById('filter-employee').addEventListener('change', render);
