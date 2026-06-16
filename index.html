@@ -294,6 +294,10 @@
           for (let i = 2; i < raw.length; i++) {
             const r = raw[i];
             if (r.every(c => c === '')) continue;
+            const customerVal = String(iCustomer >= 0 ? r[iCustomer] : '').toLowerCase();
+            if (customerVal.includes('total')) continue;
+            const numericSum = [iCC, iEmpAmt, iTip, iSwapout, iTotal].filter(x => x >= 0).reduce((s, idx) => s + toNum(r[idx]), 0);
+            if (numericSum === 0 && !customerVal) continue;
             rows.push({
               employee: employeeName,
               customer: String(iCustomer >= 0 ? r[iCustomer] : ''),
